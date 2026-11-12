@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillTest | Smart Skill Assessment Platform</title>
+    <meta name="description" content="Access available skill tests in Core Java, SQL, HTML, CSS, and JavaScript. Monitor your assessment performance and review past scores.">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="../index.html" class="brand-logo" aria-label="SkillTest Home">
+                <img src="../assets/images/logo.svg" alt="SkillTest – Smart Skill Assessment Platform" class="brand-logo-img">
+            </a>
+
+            <nav class="header-nav">
+                <ul class="nav-menu">
+                    <li><a href="../index.html" class="nav-link">Home</a></li>
+                    <li><a href="dashboard.html" class="nav-link active">Assessment</a></li>
+                    <li><a href="../index.html#categories" class="nav-link">Categories</a></li>
+                    <li><a href="../index.html#how-it-works" class="nav-link">How It Works</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions" id="nav-auth-actions">
+                <!-- Dynamically populated by app.js -->
+                <a href="login.html" class="btn btn-ghost btn-sm">Login</a>
+                <a href="login.html" class="btn btn-primary btn-sm">Register</a>
+            </div>
+
+            <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle navigation menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+
+        <div class="mobile-menu" id="mobile-menu">
+            <ul class="mobile-nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="dashboard.html">Assessments</a></li>
+                <li><a href="../index.html#categories">Categories</a></li>
+            </ul>
+            <div id="mobile-nav-auth-actions">
+                <a href="login.html" class="btn btn-primary btn-block">Sign In</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-content dashboard-page">
+        <div class="container">
+            <!-- Guest Notice Banner (shown if not logged in) -->
+            <div id="guest-banner" class="guest-banner" style="display: none;">
+                <div>
+                    <strong>Guest Mode:</strong> You can take all assessments freely. To save your personalized profile and certificate name, please sign in.
+                </div>
+                <a href="login.html" class="btn btn-primary btn-sm">Sign In Now</a>
+            </div>
+
+            <!-- Welcome Banner -->
+            <div class="welcome-banner">
+                <div class="welcome-info">
+                    <div class="welcome-avatar-large">
+                        <span>🎓</span>
+                    </div>
+                    <div>
+                        <h1 class="welcome-title">Welcome back, <span id="dashboard-user-name">Student</span>!</h1>
+                        <p class="welcome-subtitle" id="dashboard-user-email">Choose an assessment track below to validate your coding proficiency.</p>
+                    </div>
+                </div>
+                <div>
+                    <a href="test.html?category=java" class="btn btn-accent btn-lg">
+                        ⚡ Quick Start: Core Java
+                    </a>
+                </div>
+            </div>
+
+            <!-- Stats Overview Cards -->
+            <div class="stats-overview-grid">
+                <div class="dashboard-stat-card">
+                    <div class="stat-icon-box">📋</div>
+                    <div>
+                        <div class="stat-value" id="stat-total-tests">0</div>
+                        <div class="stat-title">Tests Completed</div>
+                    </div>
+                </div>
+
+                <div class="dashboard-stat-card">
+                    <div class="stat-icon-box">📊</div>
+                    <div>
+                        <div class="stat-value" id="stat-avg-score">0%</div>
+                        <div class="stat-title">Average Score</div>
+                    </div>
+                </div>
+
+                <div class="dashboard-stat-card">
+                    <div class="stat-icon-box">🏆</div>
+                    <div>
+                        <div class="stat-value" id="stat-passed-tests">0</div>
+                        <div class="stat-title">Passed Tests</div>
+                    </div>
+                </div>
+
+                <div class="dashboard-stat-card">
+                    <div class="stat-icon-box">🌟</div>
+                    <div>
+                        <div class="stat-value" id="stat-top-score">0%</div>
+                        <div class="stat-title">Highest Score</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Student Performance Summary & Simple Progress Chart -->
+            <div class="performance-grid">
+                <!-- Summary Card -->
+                <div class="performance-card">
+                    <div class="performance-card-header">
+                        <div>
+                            <h3 class="performance-card-title">Performance Summary</h3>
+                            <div class="text-xs text-muted">Domain mastery across completed assessments</div>
+                        </div>
+                        <span id="student-mastery-badge" class="badge badge-difficulty">Beginner</span>
+                    </div>
+                    <div class="cat-progress-list" id="category-performance-list">
+                        <!-- Populated dynamically by dashboard.js -->
+                    </div>
+                </div>
+
+                <!-- Progress Chart Card -->
+                <div class="performance-card">
+                    <div class="performance-card-header">
+                        <div>
+                            <h3 class="performance-card-title">Score Progress Trend</h3>
+                            <div class="text-xs text-muted">Recent assessment scores trajectory (%)</div>
+                        </div>
+                    </div>
+                    <div class="chart-container" id="progress-chart-wrapper">
+                        <!-- Populated dynamically by dashboard.js -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Available Tests Section -->
+            <div class="dashboard-section-header">
+                <div>
+                    <h2 class="dashboard-section-title">Available Skill Assessments</h2>
+                    <p class="dashboard-section-sub">Choose a category and select your preferred difficulty level (Easy, Medium, Hard)</p>
+                </div>
+            </div>
+
+            <div class="tests-cards-grid" id="tests-grid">
+                <!-- Dynamically rendered by dashboard.js from questions.js -->
+            </div>
+
+            <!-- Test History Section -->
+            <div class="history-card">
+                <div class="dashboard-section-header" style="margin-bottom: 1rem;">
+                    <div>
+                        <h3 class="dashboard-section-title" style="font-size: 1.2rem;">Assessment History</h3>
+                        <p class="dashboard-section-sub">Filtered records saved in your browser LocalStorage.</p>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem; align-items: center;">
+                        <span id="history-results-count" class="text-xs text-muted"></span>
+                        <button id="clear-history-btn" class="btn btn-ghost btn-sm" title="Clear past history from LocalStorage">
+                            Reset History
+                        </button>
+                    </div>
+                </div>
+
+                <!-- History Search & Filter Bar -->
+                <div class="history-controls-bar">
+                    <div class="history-search-wrap">
+                        <span class="history-search-icon">🔍</span>
+                        <input type="text" id="history-search-input" class="history-search-input" placeholder="Search by category name, difficulty...">
+                    </div>
+                    <div class="history-filter-group">
+                        <select id="history-category-select" class="history-select" aria-label="Filter by category">
+                            <option value="all">All Categories</option>
+                            <option value="java">Core Java</option>
+                            <option value="sql">SQL Database</option>
+                            <option value="html_css">HTML &amp; CSS</option>
+                            <option value="javascript">JavaScript</option>
+                        </select>
+
+                        <select id="history-status-select" class="history-select" aria-label="Filter by pass status">
+                            <option value="all">All Status</option>
+                            <option value="passed">Passed (>=60%)</option>
+                            <option value="failed">Needs Practice (<60%)</option>
+                        </select>
+
+                        <select id="history-sort-select" class="history-select" aria-label="Sort attempts">
+                            <option value="newest">Newest First</option>
+                            <option value="highest">Highest Score</option>
+                            <option value="lowest">Lowest Score</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="history-table-container" class="table-responsive">
+                    <table class="history-table">
+                        <thead>
+                            <tr>
+                                <th>Category &amp; Date</th>
+                                <th>Score</th>
+                                <th>Accuracy</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="history-table-body">
+                            <!-- Populated dynamically by dashboard.js -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Empty State -->
+                <div id="history-empty-state" class="empty-state" style="display: none;">
+                    <div class="empty-state-icon">📝</div>
+                    <h4 class="empty-state-title">No Assessments Taken Yet</h4>
+                    <p class="empty-state-desc">You have not completed any skill tests yet. Pick any category above to start your first assessment!</p>
+                    <a href="test.html?category=java" class="btn btn-primary btn-sm">Start Core Java Test</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-bottom" style="padding-top: 0; border-top: none;">
+                <div>&copy; 2026 SkillTest Platform. All rights reserved.</div>
+                <div><a href="../index.html" style="color: #94a3b8; text-decoration: none;">Return to Home</a></div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/questions.js"></script>
+    <script src="../js/storage.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/dashboard.js"></script>
+</body>
+</html>
+

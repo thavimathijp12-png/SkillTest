@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 56" width="320" height="56">
+  <defs>
+    <linearGradient id="whiteLogoBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#102A54" />
+      <stop offset="100%" stop-color="#1E3A8A" />
+    </linearGradient>
+
+    <linearGradient id="whiteLogoBorderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#0284C7" stop-opacity="0.4" />
+    </linearGradient>
+
+    <linearGradient id="whiteLogoCapLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#0284C7" />
+    </linearGradient>
+
+    <linearGradient id="whiteLogoCapRight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284C7" />
+      <stop offset="100%" stop-color="#0369A1" />
+    </linearGradient>
+
+    <linearGradient id="whiteLogoCardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#F1F5F9" />
+    </linearGradient>
+
+    <filter id="whiteLogoCardShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="2" flood-color="#000000" flood-opacity="0.3" />
+    </filter>
+  </defs>
+
+  <!-- ICON EMBLEM (52x52 at x=2, y=2) -->
+  <g transform="translate(2, 2)">
+    <rect width="52" height="52" rx="14" fill="url(#whiteLogoBgGrad)" />
+    <rect x="0.75" y="0.75" width="50.5" height="50.5" rx="13.25" fill="none" stroke="url(#whiteLogoBorderGrad)" stroke-width="1.25" />
+
+    <g filter="url(#whiteLogoCardShadow)">
+      <rect x="13" y="19.5" width="26" height="27" rx="4" fill="url(#whiteLogoCardGrad)" stroke="#CBD5E1" stroke-width="0.8" />
+      <rect x="21" y="18" width="10" height="3" rx="1.5" fill="#0A192F" />
+    </g>
+
+    <path d="M17 26.5 L19 28.5 L22.5 24.5" fill="none" stroke="#0284C7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+    <rect x="25" y="25.5" width="10" height="1.8" rx="0.9" fill="#64748B" />
+
+    <path d="M17 33 L19 35 L22.5 31" fill="none" stroke="#0284C7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+    <rect x="25" y="32" width="10" height="1.8" rx="0.9" fill="#64748B" />
+
+    <path d="M17 39.5 L19 41.5 L22.5 37.5" fill="none" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    <rect x="25" y="38.5" width="7" height="1.8" rx="0.9" fill="#38BDF8" />
+
+    <path d="M16 15 V18.5 C16 21.5 36 21.5 36 18.5 V15" fill="#0A192F" opacity="0.95" />
+
+    <path d="M26 5.5 L6.5 12 L26 18.5 Z" fill="url(#whiteLogoCapLeft)" />
+    <path d="M26 5.5 L45.5 12 L26 18.5 Z" fill="url(#whiteLogoCapRight)" />
+    <path d="M6.5 12 L26 18.5 L45.5 12" fill="none" stroke="#E0F2FE" stroke-width="0.75" opacity="0.8" />
+
+    <ellipse cx="26" cy="12" rx="2" ry="1.2" fill="#E0F2FE" />
+    <path d="M26 12 Q37.5 13.5 39 19.5 L39 25.5" fill="none" stroke="#38BDF8" stroke-width="1.5" stroke-linecap="round" />
+    <circle cx="39" cy="26.5" r="1.5" fill="#38BDF8" />
+    <path d="M37.8 26.5 L40.2 26.5 L39.6 29.5 L38.4 29.5 Z" fill="#38BDF8" />
+  </g>
+
+  <!-- BRAND TYPOGRAPHY FOR DARK FOOTER -->
+  <g transform="translate(66, 0)">
+    <text x="0" y="32" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="27" font-weight="800" letter-spacing="-0.5">
+      <tspan fill="#FFFFFF">Skill</tspan><tspan fill="#38BDF8">Test</tspan>
+    </text>
+    <text x="0.5" y="46" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="7.8" font-weight="700" fill="#94A3B8" letter-spacing="1.2">
+      SMART SKILL ASSESSMENT PLATFORM
+    </text>
+  </g>
+</svg>
+

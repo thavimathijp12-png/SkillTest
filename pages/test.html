@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillTest | Smart Skill Assessment Platform</title>
+    <meta name="description" content="Take your timed multiple-choice skill assessment with real-time feedback and question navigation.">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/test.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="../index.html" class="brand-logo" aria-label="SkillTest Home">
+                <img src="../assets/images/logo.svg" alt="SkillTest – Smart Skill Assessment Platform" class="brand-logo-img">
+            </a>
+
+            <div style="font-size: 0.9rem; font-weight: 600; color: var(--navy-dark);" id="test-category-title">
+                Assessment in Progress
+            </div>
+
+            <div class="nav-actions" style="display: flex; align-items: center; gap: 0.75rem;">
+                <button type="button" class="theme-toggle-btn" onclick="toggleTheme()" aria-label="Toggle theme" title="Toggle Light/Dark Theme">🌙</button>
+                <a href="dashboard.html" class="btn btn-outline-nav btn-sm" onclick="return confirm('Leaving now will discard your current test progress. Are you sure?');">
+                    Exit Test
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-content test-page-container">
+        <div class="container">
+            <!-- Top Status Bar -->
+            <div class="test-top-bar">
+                <div class="test-info-group">
+                    <span class="badge badge-difficulty" id="test-category-badge">Core Java</span>
+                    <span class="badge badge-easy" id="test-difficulty-badge">Easy Level</span>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="test-progress-wrapper">
+                    <div class="test-progress-labels">
+                        <span>Question <strong id="question-number-indicator">1</strong> of <strong id="total-questions-indicator">10</strong></span>
+                        <span id="test-progress-text"></span>
+                    </div>
+                    <div class="test-progress-track">
+                        <div class="test-progress-fill" id="test-progress-fill" style="width: 10%;"></div>
+                    </div>
+                </div>
+
+                <!-- Timer -->
+                <div class="timer-pill" id="timer-container" title="Remaining time">
+                    <span>⏱️</span>
+                    <span id="timer-display">10:00</span>
+                </div>
+            </div>
+
+            <!-- Timer Urgent Alert Banner -->
+            <div class="timer-warning-banner" id="timer-warning-banner">
+                ⚠️ Warning: Less than 1 minute remaining! Double check your answers before time expires.
+            </div>
+
+            <!-- Main Test Grid -->
+            <div class="test-main-grid">
+                <!-- Question Card -->
+                <div class="question-card">
+                    <div class="question-card-header">
+                        <span class="question-card-tag" id="question-category-tag">Multiple Choice Question</span>
+                        <div style="display: flex; gap: 0.75rem; align-items: center;">
+                            <button type="button" class="btn-flag" id="flag-btn" title="Mark this question to review later">
+                                ⚐ Flag for Review
+                            </button>
+                            <button type="button" class="clear-btn" id="clear-selection-btn">
+                                Clear Selection
+                            </button>
+                        </div>
+                    </div>
+
+                    <h2 class="question-title" id="question-text">
+                        Loading question...
+                    </h2>
+
+                    <!-- Options List -->
+                    <div class="options-list" id="options-container">
+                        <!-- Populated dynamically by test.js -->
+                    </div>
+
+                    <!-- Question Navigation Footer -->
+                    <div class="question-actions-bar">
+                        <div class="question-nav-group">
+                            <button type="button" class="btn btn-outline" id="prev-btn" disabled>
+                                ⮜ Previous
+                            </button>
+                            <button type="button" class="btn btn-primary" id="next-btn">
+                                Next Question ➔
+                            </button>
+                        </div>
+
+                        <button type="button" class="btn btn-accent" id="submit-test-btn">
+                            Submit Test ✓
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Question Palette Sidebar -->
+                <aside class="palette-sidebar">
+                    <h3 class="palette-title">Question Navigator</h3>
+                    <p class="palette-sub">Jump directly to any question number.</p>
+
+                    <div class="palette-grid" id="question-palette">
+                        <!-- Populated dynamically by test.js -->
+                    </div>
+
+                    <div class="palette-legend">
+                        <div class="legend-item">
+                            <span><span class="legend-marker marker-answered"></span> Answered</span>
+                            <strong id="palette-answered-count">0</strong>
+                        </div>
+                        <div class="legend-item">
+                            <span><span class="legend-marker" style="background: var(--warning-light); border: 1.5px solid var(--warning);"></span> Flagged</span>
+                            <strong id="palette-flagged-count">0</strong>
+                        </div>
+                        <div class="legend-item">
+                            <span><span class="legend-marker marker-unanswered"></span> Unanswered</span>
+                            <strong id="palette-unanswered-count">10</strong>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <!-- Submission Confirmation Modal -->
+    <div class="modal-overlay" id="submit-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modal-title">Submit Assessment</h3>
+                <button type="button" class="modal-close-btn" id="modal-close-btn" aria-label="Close dialog">✕</button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to finish and submit your assessment?</p>
+                <div style="background: var(--bg-subtle); padding: 1rem; border-radius: var(--radius-md); margin: 1rem 0; font-size: 0.9rem;">
+                    <div style="margin-bottom: 0.4rem;">
+                        <strong>Answered Questions:</strong> <span id="modal-answered-count" style="color: var(--navy-primary); font-weight: 700;">0</span> / 10
+                    </div>
+                    <div style="margin-bottom: 0.4rem;">
+                        <strong>Flagged for Review:</strong> <span id="modal-flagged-count" style="color: var(--warning); font-weight: 700;">0</span> / 10
+                    </div>
+                    <div>
+                        <strong>Unanswered Questions:</strong> <span id="modal-unanswered-count" style="color: var(--danger); font-weight: 700;">10</span> / 10
+                    </div>
+                </div>
+                <p id="modal-warning-text" style="color: var(--danger); font-size: 0.85rem; font-weight: 500;">
+                    Unanswered questions will receive 0 points.
+                </p>
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn btn-outline" id="modal-cancel-btn">Return to Test</button>
+                <button type="button" class="btn btn-primary" id="modal-confirm-btn">Yes, Submit Assessment</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-bottom" style="padding-top: 0; border-top: none;">
+                <div>&copy; 2026 SkillTest Platform. All rights reserved.</div>
+                <div>SkillTest Timed Engine v1.0</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/questions.js"></script>
+    <script src="../js/storage.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/test.js"></script>
+</body>
+</html>
+

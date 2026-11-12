@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillTest | Smart Skill Assessment Platform</title>
+    <meta name="description" content="Sign in to your SkillTest account to track your assessment scores, review answers, and unlock skill badges.">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/auth.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="../index.html" class="brand-logo" aria-label="SkillTest Home">
+                <img src="../assets/images/logo.svg" alt="SkillTest – Smart Skill Assessment Platform" class="brand-logo-img">
+            </a>
+
+            <nav class="header-nav">
+                <ul class="nav-menu">
+                    <li><a href="../index.html" class="nav-link">Home</a></li>
+                    <li><a href="dashboard.html" class="nav-link">Assessment</a></li>
+                    <li><a href="../index.html#categories" class="nav-link">Categories</a></li>
+                    <li><a href="../index.html#how-it-works" class="nav-link">How It Works</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions" id="nav-auth-actions">
+                <a href="login.html" class="btn btn-ghost btn-sm">Login</a>
+                <a href="login.html" class="btn btn-primary btn-sm">Register</a>
+            </div>
+
+            <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle navigation menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+
+        <div class="mobile-menu" id="mobile-menu">
+            <ul class="mobile-nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="dashboard.html">Assessments</a></li>
+                <li><a href="login.html">Sign In</a></li>
+            </ul>
+            <div id="mobile-nav-auth-actions">
+                <a href="login.html" class="btn btn-primary btn-block">Sign In</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <div class="auth-wrapper">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <h1 class="auth-title">Welcome to SkillTest</h1>
+                    <p class="auth-subtitle">Sign in to take timed assessments and track your learning progress.</p>
+                </div>
+
+                <!-- Existing active session banner if already logged in -->
+                <div id="existing-session-notice" class="existing-session-banner">
+                    <p>You are already signed in as <strong id="existing-user-name">Student</strong>.</p>
+                    <a href="dashboard.html" class="btn btn-accent btn-sm btn-block">Continue to Dashboard ➔</a>
+                </div>
+
+                <!-- Quick Demo Login Box -->
+                <div class="demo-login-box">
+                    <div class="demo-login-text">
+                        <strong>⚡ Quick Demo Testing</strong>
+                        Click to autofill valid demo credentials.
+                    </div>
+                    <button type="button" id="quick-demo-btn" class="btn btn-outline-sm">
+                        Autofill & Login
+                    </button>
+                </div>
+
+                <!-- Login Form with Validation -->
+                <form id="login-form" novalidate>
+                    <div class="form-group">
+                        <label for="fullname" class="form-label">Full Name</label>
+                        <div class="input-container">
+                            <input 
+                                type="text" 
+                                id="fullname" 
+                                class="form-control" 
+                                placeholder="e.g. Alex Morgan"
+                                autocomplete="name"
+                                required
+                            >
+                        </div>
+                        <div class="form-error-msg" id="fullname-error"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email Address</label>
+                        <div class="input-container">
+                            <input 
+                                type="email" 
+                                id="email" 
+                                class="form-control" 
+                                placeholder="name@example.com"
+                                autocomplete="email"
+                                required
+                            >
+                        </div>
+                        <div class="form-error-msg" id="email-error"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password" class="form-label">Password</label>
+                        <div class="input-container">
+                            <input 
+                                type="password" 
+                                id="password" 
+                                class="form-control" 
+                                placeholder="At least 6 characters"
+                                autocomplete="current-password"
+                                required
+                            >
+                            <button type="button" class="input-toggle-btn" id="toggle-password" aria-label="Toggle password visibility">
+                                👁️
+                            </button>
+                        </div>
+                        <div class="form-error-msg" id="password-error"></div>
+                    </div>
+
+                    <div class="form-row-between">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="remember-me" class="checkbox-input" checked>
+                            <span>Remember me</span>
+                        </label>
+                        <a href="dashboard.html" class="link-subtle">Skip as Guest ➔</a>
+                    </div>
+
+                    <button type="submit" id="submit-btn" class="btn btn-primary btn-block btn-lg">
+                        Sign In ➔
+                    </button>
+                </form>
+
+                <div class="auth-footer">
+                    <span>Just browsing? </span>
+                    <a href="dashboard.html" class="link-subtle">Explore tests as Guest</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-bottom" style="padding-top: 0; border-top: none;">
+                <div>&copy; 2026 SkillTest Platform. All rights reserved.</div>
+                <div><a href="../index.html" style="color: #94a3b8; text-decoration: none;">Return to Home</a></div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/storage.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/auth.js"></script>
+</body>
+</html>
+

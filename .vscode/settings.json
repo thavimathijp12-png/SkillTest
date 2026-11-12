@@ -1,0 +1,14 @@
+{
+    "java.compile.nullAnalysis.mode": "automatic",
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-25",
+            "path": "C:\\Users\\thavi\\.jdk\\jdk-25\\jdk-25.0.2",
+            "default": true
+        }
+    ],
+    "java.import.maven.java.home": "C:\\Users\\thavi\\.jdk\\jdk-25\\jdk-25.0.2",
+    "java.jdt.ls.java.home": "C:\\Users\\thavi\\.jdk\\jdk-25\\jdk-25.0.2",
+    "maven.terminal.useJavaHome": true
+}

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillTest | Smart Skill Assessment Platform</title>
+    <meta name="description" content="View your detailed assessment score, accuracy percentage, answer breakdown, and step-by-step explanations.">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/test.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="../index.html" class="brand-logo" aria-label="SkillTest Home">
+                <img src="../assets/images/logo.svg" alt="SkillTest – Smart Skill Assessment Platform" class="brand-logo-img">
+            </a>
+
+            <nav class="header-nav">
+                <ul class="nav-menu">
+                    <li><a href="../index.html" class="nav-link">Home</a></li>
+                    <li><a href="dashboard.html" class="nav-link">Assessment</a></li>
+                    <li><a href="../index.html#categories" class="nav-link">Categories</a></li>
+                    <li><a href="../index.html#how-it-works" class="nav-link">How It Works</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions" id="nav-auth-actions">
+                <a href="dashboard.html" class="btn btn-outline-nav btn-sm">Dashboard</a>
+            </div>
+
+            <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle navigation menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+
+        <div class="mobile-menu" id="mobile-menu">
+            <ul class="mobile-nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="dashboard.html">Assessments</a></li>
+                <li><a href="../index.html#categories">Categories</a></li>
+            </ul>
+            <div id="mobile-nav-auth-actions">
+                <a href="dashboard.html" class="btn btn-primary btn-block">Go to Dashboard</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-content result-page-container">
+        <div class="container container-narrow">
+
+            <!-- Score Summary Hero Card -->
+            <div class="score-hero-card">
+                <div class="score-hero-top">
+                    <span id="result-category-icon" style="font-size: 1.5rem;">☕</span>
+                    <span class="score-hero-cat" id="result-category-title">Core Java Assessment</span>
+                    <span class="badge badge-easy" id="result-difficulty-badge">Easy Level</span>
+                    <span class="badge badge-success" id="result-status-badge">Passed</span>
+                </div>
+
+                <!-- SVG Circular Meter -->
+                <div class="circle-gauge-wrapper">
+                    <svg class="circle-gauge-svg" viewBox="0 0 160 160">
+                        <circle class="circle-gauge-bg" cx="80" cy="80" r="70" />
+                        <circle class="circle-gauge-progress" id="result-circle-progress" cx="80" cy="80" r="70" stroke-dasharray="440" stroke-dashoffset="88" />
+                    </svg>
+                    <div class="circle-gauge-content">
+                        <div class="gauge-percent" id="result-percentage">80%</div>
+                        <div class="gauge-score-sub"><span id="result-score-value">8</span> of <span id="result-total-value">10</span> Correct</div>
+                    </div>
+                </div>
+
+                <h1 class="feedback-headline" id="result-feedback-title">Great Job! You Passed! 🎉</h1>
+                <p class="feedback-subtext" id="result-feedback-desc">
+                    You have achieved a passing score on this assessment. Review the questions and detailed explanations below to reinforce your knowledge.
+                </p>
+
+                <!-- 4-Stat Metric Boxes -->
+                <div class="result-stats-grid">
+                    <div class="result-stat-box">
+                        <div class="result-stat-val stat-correct" id="stat-correct-count">8</div>
+                        <div class="result-stat-label">Correct</div>
+                    </div>
+                    <div class="result-stat-box">
+                        <div class="result-stat-val stat-incorrect" id="stat-incorrect-count">2</div>
+                        <div class="result-stat-label">Incorrect</div>
+                    </div>
+                    <div class="result-stat-box">
+                        <div class="result-stat-val stat-unanswered" id="stat-unanswered-count">0</div>
+                        <div class="result-stat-label">Skipped</div>
+                    </div>
+                    <div class="result-stat-box">
+                        <div class="result-stat-val stat-time" id="stat-time-spent">04:20</div>
+                        <div class="result-stat-label">Time Spent</div>
+                    </div>
+                </div>
+
+                <!-- Action Button Row -->
+                <div class="result-action-row">
+                    <a href="test.html?category=java" class="btn btn-primary btn-lg" id="retake-test-btn">
+                        ↻ Retake Test
+                    </a>
+                    <a href="dashboard.html" class="btn btn-outline btn-lg" id="dashboard-nav-btn">
+                        Dashboard &amp; Other Tests ➔
+                    </a>
+                    <button type="button" class="btn btn-outline btn-lg" id="copy-summary-btn" title="Copy score report to clipboard">
+                        📋 Copy Summary
+                    </button>
+                    <button type="button" class="btn btn-ghost" id="print-result-btn" title="Print or save this score as PDF">
+                        🖨️ Print Result
+                    </button>
+                </div>
+            </div>
+
+            <!-- Detailed Question-by-Question Review -->
+            <div class="review-section-header">
+                <div>
+                    <h2 class="review-section-title">Question Breakdown &amp; Explanations</h2>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Review each question, your selected answer, and the correct answer explanation.</p>
+                </div>
+            </div>
+
+            <!-- Review Filter Tabs -->
+            <div class="review-filter-tabs" id="review-filter-tabs">
+                <!-- Dynamically generated by result.js -->
+            </div>
+
+            <div class="review-questions-list" id="review-questions-list">
+                <!-- Dynamically populated by result.js -->
+            </div>
+
+            <!-- Bottom Action Navigation -->
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="dashboard.html" class="btn btn-primary btn-lg">
+                    Return to Assessments Dashboard ➔
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-bottom" style="padding-top: 0; border-top: none;">
+                <div>&copy; 2026 SkillTest Platform. All rights reserved.</div>
+                <div><a href="../index.html" style="color: #94a3b8; text-decoration: none;">Return to Home</a></div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/questions.js"></script>
+    <script src="../js/storage.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/result.js"></script>
+</body>
+</html>
+

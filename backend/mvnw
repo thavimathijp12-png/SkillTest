@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+if [ -x "$DIR/tools/apache-maven-3.9.9/bin/mvn" ]; then
+    "$DIR/tools/apache-maven-3.9.9/bin/mvn" "$@"
+else
+    mvn "$@"
+fi
+

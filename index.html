@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillTest | Smart Skill Assessment Platform</title>
+    <meta name="description"
+        content="Validate your coding expertise in Core Java, SQL, HTML, CSS, and JavaScript with instant feedback and timed assessments.">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home.css">
+</head>
+
+<body>
+
+    <!-- Header Navigation -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="brand-logo" aria-label="SkillTest Home">
+                <img src="assets/images/logo.svg" alt="SkillTest – Smart Skill Assessment Platform"
+                    class="brand-logo-img">
+            </a>
+
+            <nav class="header-nav">
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link active">Home</a></li>
+                    <li><a href="pages/dashboard.html" class="nav-link">Assessment</a></li>
+                    <li><a href="#categories" class="nav-link">Categories</a></li>
+                    <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions" id="nav-auth-actions">
+                <a href="pages/login.html" class="btn btn-ghost btn-sm">Login</a>
+                <a href="pages/login.html" class="btn btn-primary btn-sm">Register</a>
+            </div>
+
+            <!-- Mobile Hamburger Button -->
+            <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle navigation menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div class="mobile-menu" id="mobile-menu">
+            <ul class="mobile-nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="pages/dashboard.html">Assessment</a></li>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+            </ul>
+            <div id="mobile-nav-auth-actions">
+                <a href="pages/login.html" class="btn btn-outline btn-block">Login</a>
+                <a href="pages/login.html" class="btn btn-primary btn-block mt-2">Register</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <div class="hero-tag">
+                        <span class="hero-tag-icon">🚀</span>
+                        <span>Smart Skill Assessment Platform</span>
+                    </div>
+                    <h1 class="hero-title">
+                        Validate Your Coding Skills with <span class="hero-title-gradient">Precision & Speed</span>
+                    </h1>
+                    <p class="hero-desc">
+                        SkillTest empowers beginners and aspiring developers to benchmark their technical knowledge
+                        through timed multiple-choice assessments, real-time score calculation, and in-depth answer
+                        explanations.
+                    </p>
+                    <div class="hero-cta-group">
+                        <a href="pages/dashboard.html" class="btn btn-primary btn-lg" id="hero-start-btn">
+                            Start Test ➔
+                        </a>
+                        <a href="#categories" class="btn btn-outline btn-lg">
+                            Explore Categories
+                        </a>
+                    </div>
+                    <div class="hero-feature-pills">
+                        <div class="hero-pill-item">
+                            <span class="hero-pill-check">✓</span> 10-Minute Timed Format
+                        </div>
+                        <div class="hero-pill-item">
+                            <span class="hero-pill-check">✓</span> Instant Score Breakdown
+                        </div>
+                        <div class="hero-pill-item">
+                            <span class="hero-pill-check">✓</span> 100% Free for Beginners
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Interactive Visual Preview -->
+                <div class="hero-visual">
+                    <div class="hero-card-preview">
+                        <div class="preview-header">
+                            <div class="preview-badge-category">
+                                <span>☕</span> Core Java Assessment
+                            </div>
+                            <div class="preview-timer-pill">
+                                <span>⏱️</span> 08:45 Remaining
+                            </div>
+                        </div>
+                        <h3 class="preview-question-title">
+                            What is the file extension of a compiled Java bytecode file?
+                        </h3>
+                        <div class="preview-options-list">
+                            <div class="preview-option-row">
+                                <span class="preview-opt-circle">A</span> .java
+                            </div>
+                            <div class="preview-option-row active">
+                                <span class="preview-opt-circle">B</span> .class
+                            </div>
+                            <div class="preview-option-row">
+                                <span class="preview-opt-circle">C</span> .byte
+                            </div>
+                            <div class="preview-option-row">
+                                <span class="preview-opt-circle">D</span> .exe
+                            </div>
+                        </div>
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: #64748b;">
+                            <span>Question 2 of 10</span>
+                            <span style="color: #0284c7; font-weight: 600;">Answered: 2 / 10</span>
+                        </div>
+                    </div>
+
+                    <div class="preview-card-floating-badge">
+                        <div style="font-size: 1.5rem;">🎯</div>
+                        <div>
+                            <div class="preview-badge-score">80% Score</div>
+                            <div class="preview-badge-sub">Passed with Distinction</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Bar -->
+        <section class="stats-banner">
+            <div class="container stats-grid">
+                <div class="stat-item">
+                    <div class="stat-item-number">4</div>
+                    <div class="stat-item-label">Core Tech Domains</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-item-number">10</div>
+                    <div class="stat-item-label">MCQs Per Assessment</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-item-number">10m</div>
+                    <div class="stat-item-label">Realistic Countdown Timer</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-item-number">100%</div>
+                    <div class="stat-item-label">Instant Explanation Review</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Available Categories Section -->
+        <section class="section-padding" id="categories">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Assessment Tracks</span>
+                    <h2 class="section-title">Explore Available Skill Tests</h2>
+                    <p class="section-desc">
+                        Select a domain tailored to beginners to gauge your foundational understanding and build
+                        interview confidence.
+                    </p>
+                </div>
+
+                <div class="categories-grid">
+                    <!-- Core Java Card (Featured) -->
+                    <div class="category-card featured">
+                        <span class="featured-pill">Featured</span>
+                        <div class="category-icon-wrapper" style="background: rgba(2, 132, 199, 0.1);">
+                            ☕
+                        </div>
+                        <h3 class="category-name">Core Java</h3>
+                        <p class="category-summary">
+                            Master Java fundamentals including JVM architecture, data types, object-oriented concepts,
+                            access modifiers, and loop syntax.
+                        </p>
+                        <div class="category-meta-row">
+                            <span>⏱️ 6-10 Mins</span>
+                            <span>❓ 10 MCQs</span>
+                            <span>🎯 Easy • Med • Hard</span>
+                        </div>
+                        <a href="pages/test.html?category=java" class="btn btn-primary btn-block">
+                            Start Java Test ➔
+                        </a>
+                    </div>
+
+                    <!-- SQL Card -->
+                    <div class="category-card">
+                        <div class="category-icon-wrapper" style="background: rgba(3, 105, 161, 0.1);">
+                            🗄️
+                        </div>
+                        <h3 class="category-name">SQL</h3>
+                        <p class="category-summary">
+                            Evaluate relational database knowledge covering SELECT queries, WHERE filters, aggregate
+                            functions, and PRIMARY KEY constraints.
+                        </p>
+                        <div class="category-meta-row">
+                            <span>⏱️ 6-10 Mins</span>
+                            <span>❓ 10 MCQs</span>
+                            <span>🎯 Easy • Med • Hard</span>
+                        </div>
+                        <a href="pages/test.html?category=sql" class="btn btn-outline btn-block">
+                            Start SQL Test ➔
+                        </a>
+                    </div>
+
+                    <!-- HTML & CSS Card -->
+                    <div class="category-card">
+                        <div class="category-icon-wrapper" style="background: rgba(2, 132, 199, 0.1);">
+                            🎨
+                        </div>
+                        <h3 class="category-name">HTML & CSS</h3>
+                        <p class="category-summary">
+                            Test your web page layout skills, semantic HTML elements, Box Model fundamentals, Flexbox
+                            mechanics, and modern CSS selectors.
+                        </p>
+                        <div class="category-meta-row">
+                            <span>⏱️ 6-10 Mins</span>
+                            <span>❓ 10 MCQs</span>
+                            <span>🎯 Easy • Med • Hard</span>
+                        </div>
+                        <a href="pages/test.html?category=html_css" class="btn btn-outline btn-block">
+                            Start HTML & CSS Test ➔
+                        </a>
+                    </div>
+
+                    <!-- JavaScript Card -->
+                    <div class="category-card">
+                        <div class="category-icon-wrapper" style="background: rgba(234, 179, 8, 0.1);">
+                            ⚡
+                        </div>
+                        <h3 class="category-name">JavaScript</h3>
+                        <p class="category-summary">
+                            Examine essential JavaScript concepts: variable declarations (let/const), strict equality,
+                            DOM manipulation, arrays, and type coercion.
+                        </p>
+                        <div class="category-meta-row">
+                            <span>⏱️ 6-10 Mins</span>
+                            <span>❓ 10 MCQs</span>
+                            <span>🎯 Easy • Med • Hard</span>
+                        </div>
+                        <a href="pages/test.html?category=javascript" class="btn btn-outline btn-block">
+                            Start JS Test ➔
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="section-padding how-it-works-bg" id="how-it-works">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Simple 3-Step Process</span>
+                    <h2 class="section-title">How SkillTest Works</h2>
+                    <p class="section-desc">
+                        Our platform is engineered for zero friction: jump right in, answer questions at your pace, and
+                        view comprehensive performance insights.
+                    </p>
+                </div>
+
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h3 class="step-title">Choose Your Category</h3>
+                        <p class="step-desc">
+                            Select from Core Java, SQL, HTML & CSS, or JavaScript from your personal dashboard. No
+                            complicated software or plugins required.
+                        </p>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h3 class="step-title">Take the Timed Assessment</h3>
+                        <p class="step-desc">
+                            Answer 10 multiple-choice questions within 10 minutes. Use the question palette to jump
+                            between questions and review answers easily.
+                        </p>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h3 class="step-title">Review Score & Explanations</h3>
+                        <p class="step-desc">
+                            Receive your score, accuracy percentage, and a question-by-question breakdown with
+                            educational explanations for every single option.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Callout Banner -->
+        <div class="container">
+            <div class="cta-banner">
+                <h2>Ready to Test Your Technical Knowledge?</h2>
+                <p>
+                    Join thousands of beginners who use SkillTest to track progress, build test confidence, and prepare
+                    for interviews.
+                </p>
+                <a href="pages/dashboard.html" class="btn btn-accent btn-lg">
+                    Launch Your First Test ➔
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="index.html" class="brand-logo" aria-label="SkillTest Home">
+                        <img src="assets/images/logo-white.svg" alt="SkillTest – Smart Skill Assessment Platform"
+                            class="brand-logo-footer">
+                    </a>
+                    <p class="footer-desc">
+                        A modern, beginner-friendly frontend assessment platform built with pure HTML, CSS, and Vanilla
+                        JavaScript.
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Assessments</h4>
+                    <ul class="footer-links">
+                        <li><a href="pages/test.html?category=java">Core Java (10 MCQs)</a></li>
+                        <li><a href="pages/test.html?category=sql">SQL Database</a></li>
+                        <li><a href="pages/test.html?category=html_css">HTML & CSS</a></li>
+                        <li><a href="pages/test.html?category=javascript">JavaScript</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Platform</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="pages/dashboard.html">Dashboard</a></li>
+                        <li><a href="pages/login.html">Sign In</a></li>
+                        <li><a href="pages/result.html">Recent Results</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Features</h4>
+                    <ul class="footer-links">
+                        <li><a href="#how-it-works">Timed Quizzes</a></li>
+                        <li><a href="#categories">Score Calculations</a></li>
+                        <li><a href="pages/dashboard.html">LocalStorage History</a></li>
+                        <li><a href="pages/dashboard.html">Instant Verification</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>&copy; 2026 SkillTest Platform. All rights reserved. Built with pure HTML, CSS, and Vanilla JS.
+                </div>
+                <div>Designed for Beginners & Technical Job Seekers.</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Global App Scripts -->
+    <script src="js/storage.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
